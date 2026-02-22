@@ -39,3 +39,13 @@ def alternate(s):
             if is_valid:
                 max_len = max(max_len, len(filtered_s))
     return max_len
+
+def gridChallenge(grid):
+    sorted_grid = [sorted(list(row)) for row in grid]
+    rows = len(sorted_grid)
+    cols = len(sorted_grid[0])
+    for col in range(cols):
+        for row in range(1, rows):
+            if sorted_grid[row][col] < sorted_grid[row-1][col]:
+                return "NO"
+    return "YES"
